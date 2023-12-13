@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="estate_aurel_list_view_search" model="ir.ui.view">
+        <field name="name">estate.aurel.list.view.search</field>
+        <field name="model">estate.aurel.test.model</field>
+        <field name="arch" type="xml">
+            <search string="Search Opportunities">
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="expected_price"/>
+                <field name="bedrooms"/>
+                <field name="living_area"/>
+                <field name="facades"/>
+                <!--<filter string="Include archived" name="archived" domain="['|', ('active', '=', True), ('active', '=', False)]"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                
+                <filter string="Available" domain="DOMAIN"/>-->
+                <filter name="filter_by_state" string="State" domain="['|', ('state', '=', 'New'), ('state', '=', 'Received')]"/>
+                <filter name="group_by_postcode" string="Postcode" context="{'group_by': 'postcode'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="estate_aurel_list_view_form" model="ir.ui.view">
+        <field name="name">estate.aurel.list.view.form</field>
+        <field name="model">estate.aurel.test.model</field>
+        <field name="arch" type="xml">
+            <form string="My new house">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="property_type_id" string="Property Type"/>
+                        </group>
+                        <group>
+                            <field name="postcode" string="Postcode"/>
+                        </group>
+                        <group>
+                            <field name="expected_price" string="Expected Price"/>
+                        </group>
+                        <group>
+                            <field name="date_avaibility" string="Available From"/>
+                        </group>
+                        <group>
+                            <field name="selling_price" string="Selling Price"/>
+                        </group>
+                        <group>
+                            <field name="best_price" string="Best Offer"/>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <group>
+                                    <field name="name" string="Title"/>
+                                </group>
+                                <group>
+                                    <field name="description"/>
+                                </group>
+                                <group>
+                                    <field name="bedrooms" string="Bedrooms"/>
+                                </group>
+                                <group>
+                                    <field name="living_area" string="Living Area (sqm)"/>
+                                </group>
+                                <group>
+                                    <field name="facades" string="Facades"/>
+                                </group>
+                                <group>
+                                    <field name="garage" string="Garage"/>
+                                </group>
+                                <group>
+                                    <field name="garden" string="Garden"/>
+                                </group>
+                                <group>
+                                    <field name="garden_area" string="Garden Area (sqm)"/>
+                                </group>
+                                <group>
+                                    <field name="garden_orientation" string="Garden Orientation"/>
+                                </group>
+                                <group>
+                                    <field name="total_area" string="Total Area (sqm)"/>
+                                </group>
+                            </page>
+                            <page string="Offers">
+                                <group>
+                                    <field name="offer_ids">
+                                        <tree>
+                                            <field name="price" string="Price"/>
+                                            <field name="partner_id" string="Partner"/>
+                                            <field name="status" string="Status"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Other Info">
+                                <group>
+                                    <field name="user_id" string="Salesman"/>
+                                    <field name="partner_id" string="Buyer"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="estate_aurel_list_view_tree" model="ir.ui.view">
+        <field name="name">estate.aurel.list.view.tree</field>
+        <field name="model">estate.aurel.test.model</field>
+        <field name="arch" type="xml">
+            <tree string="Properties">
+                <field name="name" string="Title"/>
+                <field name="postcode" string="Postcode"/>
+                <field name="bedrooms" string="Bedrooms"/>
+                <field name="living_area" string="Living Area (sqm)"/>
+                <field name="expected_price" string="Expected Price"/>
+                <field name="selling_price" string="Selling Price"/>
+                <field name="date_avaibility" string="Available From"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Configuration/Lead & Opportunities/Lost Reasons Menu -->
+    <!--
+    <record id="estate_aurel_list_view_action" model="ir.actions.act_window">
+        <field name="name">estate.aurel.list.view.action</field>
+        <field name="res_model">estate.aurel.test.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Define a new lost reason
+          </p><p>
+            Use lost reasons to explain why an opportunity is lost.
+          </p><p>
+            Some examples of lost reasons: "We don't have people/skill", "Price too high"
+          </p>
+        </field>
+    </record>
+
+    <record id="menu_estate_aurel" model="ir.ui.menu">
+        <field name="action" ref="test_model_action"/>
+    </record>
+    -->
+</odoo>
