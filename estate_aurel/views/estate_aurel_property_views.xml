@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="test_model_action" model="ir.actions.act_window">
+        <field name="name">Test action</field>
+        <field name="res_model">estate.aurel.test.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="property_type_model_action" model="ir.actions.act_window">
+        <field name="name">Property Types</field>
+        <field name="res_model">estate.aurel.property.type.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="property_tag_model_action" model="ir.actions.act_window">
+        <field name="name">Property Tags</field>
+        <field name="res_model">estate.aurel.property.tag.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
